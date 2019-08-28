@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script src="https://www.gstatic.com/firebasejs/6.4.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.4.2/firebase-database.js"></script>
+
+    
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyBmQaTAbDw2u4rgxJ9oOw0jjV7nb4a7sEU",
+            authDomain: "teste-5bb94.firebaseapp.com",
+            databaseURL: "https://teste-5bb94.firebaseio.com",
+            projectId: "teste-5bb94",
+            storageBucket: "",
+            messagingSenderId: "270203177787",
+            appId: "1:270203177787:web:2ef602bd7da92c38"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+
+
+        async function listen_game(){
+
+            let game_ref = firebase.database().ref('/flash_light/')
+
+            game_ref.once('child_changed')
+            .then(function(snapshot){
+
+                if (snapshot.key == 'color') {                
+                    document.body.style.background = snapshot.val()
+                }
+            })
+            .catch(function(error){
+                return {sucess: false, message: `Invalid data: ${error.message}`};
+            });
+        }
+    
+    </script>
+
+
+
+
+</body>
+</html>
+
