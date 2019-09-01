@@ -1,9 +1,8 @@
 {
-  "name": "package.json",
-  "version": "1",
+  "name": "FalshLight",
+  "version": "1.0.0",
   "description": "teste",
-  "main": "index.js",
+  "main": "index.html",
   "repository": "https://github.com/dioneijd/FlashLight.git",
-  "author": "Dionei <dionei.jd@gmail.com>",
   "license": "MIT"
 }
