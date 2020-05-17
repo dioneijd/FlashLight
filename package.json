@@ -4,5 +4,15 @@
   "description": "teste",
   "main": "index.html",
   "repository": "https://github.com/dioneijd/FlashLight.git",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "dev": "nodemon src/server.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "socket.io": "^2.3.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
 }
