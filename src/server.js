@@ -10,7 +10,10 @@ app.use(express.static(path.join(__dirname, 'public')))
 app.use(express.json())
 
 app.get('/', (req, res) =>{
-    res.sendFile(__dirname + '/public/index.html')
+    res.sendFile(__dirname + '/public/client.html')
+})
+app.get('/mng', (req, res) =>{
+    res.sendFile(__dirname + '/public/manager.html')
 })
 
 
@@ -18,20 +21,15 @@ const state = require('./components/state.js')
 
 
 io.on('connection', socket => {
+
     console.log('a user connected. ID:', socket.id)
 
     state.AddClient(socket.id)
     
-    socket.emit('stateUpdate', state.data)
-    socket.broadcast.emit('stateUpdate', state.data)
+    socket.emit('clientsUpdated', state.data.clients)
     
-
-    socket.on('changeState', newData => {
-        state.UpdateState(newData)
-
-        socket.emit('stateUpdate', state.data)
-        socket.broadcast.emit('stateUpdate', state.data)
-    
+    socket.on('colorChanged', (color) => {
+        socket.broadcast.emit('colorChanged', color)
     })
 
     socket.on('disconnect', () => {
