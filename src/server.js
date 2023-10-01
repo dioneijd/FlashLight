@@ -9,6 +9,7 @@ const http = require('http').createServer(app)
 const io = require('socket.io')(http)
 
 app.use(express.static(path.join(__dirname, 'public')))
+app.use(express.static(path.join(__dirname, '..', 'node_modules')))
 app.use(express.json())
 
 app.get('/', (req, res) =>{

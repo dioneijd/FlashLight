@@ -1,6 +1,6 @@
-const socket = io()
 
-let bodyColor = '#000000';
+
+let bodyColor = '#000000'
 
 
 socket.on('colorChanged', function(color){

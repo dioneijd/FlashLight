@@ -1,7 +1,6 @@
 {
   "name": "FalshLight",
   "version": "1.0.0",
-  "description": "teste",
   "main": "index.html",
   "repository": "https://github.com/dioneijd/FlashLight.git",
   "license": "MIT",
@@ -12,6 +11,7 @@
   "dependencies": {
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
+    "qrcode": "^1.4.4",
     "socket.io": "^2.4.0"
   },
   "devDependencies": {
